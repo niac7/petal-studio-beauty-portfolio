@@ -1,9 +1,9 @@
 /*
- * LUMIÈRE VISUALS — JEWELRY PORTFOLIO
- * Design: Noir Atelier
- * Movement: Art Deco meets contemporary dark editorial
- * Palette: Near-black (#0A0A0A), off-white (#F5F0E8), antique gold (#C9A84C), crimson (#6B1A1A)
- * Typography: Cormorant Garamond (display) + DM Sans (body)
+ * PETAL STUDIO — BEAUTY & SKINCARE PORTFOLIO
+ * Design: Soft Modernist Editorial
+ * Movement: Clean editorial meets luxury spa — Glossier meets Aesop
+ * Palette: Warm cream (#FAF7F4), soft blush (#E8C4B8), blush-deep (#C9907E), sage (#8A9E8A), charcoal (#2C2C2C)
+ * Typography: Playfair Display (display) + Nunito (body)
  */
 
 @import "tailwindcss";
@@ -35,231 +35,126 @@
   --color-border: var(--border);
   --color-input: var(--input);
   --color-ring: var(--ring);
-  --font-display: 'Cormorant Garamond', Georgia, serif;
-  --font-body: 'DM Sans', system-ui, sans-serif;
+  --font-display: 'Playfair Display', Georgia, serif;
+  --font-body: 'Nunito', system-ui, sans-serif;
 }
 
 :root {
-  --radius: 0rem;
-  --background: oklch(0.08 0.005 285);
-  --foreground: oklch(0.95 0.008 75);
-  --card: oklch(0.10 0.005 285);
-  --card-foreground: oklch(0.95 0.008 75);
-  --popover: oklch(0.10 0.005 285);
-  --popover-foreground: oklch(0.95 0.008 75);
-  --primary: oklch(0.72 0.08 75);
-  --primary-foreground: oklch(0.08 0.005 285);
-  --secondary: oklch(0.14 0.005 285);
-  --secondary-foreground: oklch(0.85 0.008 75);
-  --muted: oklch(0.14 0.005 285);
-  --muted-foreground: oklch(0.60 0.008 75);
-  --accent: oklch(0.72 0.08 75);
-  --accent-foreground: oklch(0.08 0.005 285);
-  --destructive: oklch(0.45 0.18 25);
-  --destructive-foreground: oklch(0.95 0 0);
-  --border: oklch(1 0 0 / 8%);
-  --input: oklch(1 0 0 / 10%);
-  --ring: oklch(0.72 0.08 75);
-  /* Custom brand tokens */
-  --gold: #C9A84C;
-  --gold-light: #E8D5A3;
-  --charcoal: #0A0A0A;
-  --off-white: #F5F0E8;
-  --crimson: #6B1A1A;
+  --radius: 0.25rem;
+  --background: oklch(0.98 0.008 60);
+  --foreground: oklch(0.22 0.01 60);
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.22 0.01 60);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.22 0.01 60);
+  --primary: oklch(0.55 0.08 20);
+  --primary-foreground: oklch(0.98 0 0);
+  --secondary: oklch(0.94 0.01 60);
+  --secondary-foreground: oklch(0.35 0.01 60);
+  --muted: oklch(0.94 0.01 60);
+  --muted-foreground: oklch(0.55 0.01 60);
+  --accent: oklch(0.82 0.06 20);
+  --accent-foreground: oklch(0.22 0.01 60);
+  --destructive: oklch(0.577 0.245 27.325);
+  --destructive-foreground: oklch(0.985 0 0);
+  --border: oklch(0.88 0.01 60);
+  --input: oklch(0.88 0.01 60);
+  --ring: oklch(0.55 0.08 20);
+  --cream: #FAF7F4;
+  --blush: #E8C4B8;
+  --blush-deep: #C9907E;
+  --sage: #8A9E8A;
+  --charcoal: #2C2C2C;
 }
 
 @layer base {
-  * {
-    @apply border-border outline-ring/50;
-  }
-  html {
-    scroll-behavior: smooth;
-  }
+  * { @apply border-border outline-ring/50; }
+  html { scroll-behavior: smooth; }
   body {
     @apply bg-background text-foreground;
     font-family: var(--font-body);
     font-weight: 300;
     -webkit-font-smoothing: antialiased;
+    background-color: #FAF7F4;
   }
-  h1, h2, h3, h4, h5 {
-    font-family: var(--font-display);
-  }
-  button:not(:disabled),
-  [role="button"]:not([aria-disabled="true"]),
-  a[href] {
-    @apply cursor-pointer;
-  }
+  h1, h2, h3, h4, h5 { font-family: var(--font-display); }
+  button:not(:disabled), [role="button"]:not([aria-disabled="true"]), a[href] { @apply cursor-pointer; }
 }
 
 @layer components {
   .container {
-    width: 100%;
-    margin-left: auto;
-    margin-right: auto;
-    padding-left: 1.5rem;
-    padding-right: 1.5rem;
+    width: 100%; margin-left: auto; margin-right: auto;
+    padding-left: 1.5rem; padding-right: 1.5rem;
   }
-  .flex {
-    min-height: 0;
-    min-width: 0;
-  }
-  @media (min-width: 768px) {
-    .container {
-      padding-left: 3rem;
-      padding-right: 3rem;
-    }
-  }
-  @media (min-width: 1280px) {
-    .container {
-      padding-left: 5rem;
-      padding-right: 5rem;
-      max-width: 1440px;
-    }
-  }
+  .flex { min-height: 0; min-width: 0; }
+  @media (min-width: 768px) { .container { padding-left: 3rem; padding-right: 3rem; } }
+  @media (min-width: 1280px) { .container { padding-left: 5rem; padding-right: 5rem; max-width: 1440px; } }
 
-  /* Gold hairline rule */
-  .gold-rule {
-    border: none;
-    border-top: 0.5px solid var(--gold);
-    opacity: 0.6;
-  }
+  .blush-rule { border: none; border-top: 1px solid #E8C4B8; opacity: 0.8; }
 
-  /* Display typography */
   .display-xl {
     font-family: var(--font-display);
-    font-size: clamp(3rem, 8vw, 7rem);
-    font-weight: 300;
-    line-height: 1.0;
-    letter-spacing: -0.02em;
+    font-size: clamp(2.5rem, 7vw, 6rem);
+    font-weight: 400; line-height: 1.05; letter-spacing: -0.02em; color: #2C2C2C;
   }
   .display-lg {
     font-family: var(--font-display);
-    font-size: clamp(2rem, 5vw, 4.5rem);
-    font-weight: 300;
-    line-height: 1.1;
-    letter-spacing: -0.01em;
+    font-size: clamp(1.8rem, 4vw, 3.5rem);
+    font-weight: 400; line-height: 1.15; letter-spacing: -0.01em; color: #2C2C2C;
   }
   .display-md {
     font-family: var(--font-display);
-    font-size: clamp(1.5rem, 3vw, 2.5rem);
-    font-weight: 400;
-    line-height: 1.2;
+    font-size: clamp(1.3rem, 2.5vw, 2rem);
+    font-weight: 400; line-height: 1.3; color: #2C2C2C;
   }
-  .label-gold {
-    font-family: var(--font-body);
-    font-size: 0.65rem;
-    font-weight: 500;
-    letter-spacing: 0.25em;
-    text-transform: uppercase;
-    color: var(--gold);
+  .label-blush {
+    font-family: var(--font-body); font-size: 0.65rem; font-weight: 500;
+    letter-spacing: 0.22em; text-transform: uppercase; color: #C9907E;
   }
-  .body-refined {
-    font-family: var(--font-body);
-    font-size: 0.95rem;
-    font-weight: 300;
-    line-height: 1.8;
-    color: oklch(0.75 0.005 75);
+  .body-soft {
+    font-family: var(--font-body); font-size: 0.95rem; font-weight: 300;
+    line-height: 1.85; color: #6B6560;
   }
 
-  /* Grain texture overlay */
-  .grain-overlay {
-    position: relative;
+  .btn-blush {
+    display: inline-flex; align-items: center; gap: 0.5rem;
+    padding: 0.75rem 2rem; border: 1px solid #C9907E; color: #C9907E;
+    font-family: var(--font-body); font-size: 0.75rem; font-weight: 500;
+    letter-spacing: 0.18em; text-transform: uppercase; background: transparent;
+    transition: all 0.35s ease; text-decoration: none;
   }
-  .grain-overlay::after {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
-    pointer-events: none;
-    opacity: 0.35;
-    mix-blend-mode: overlay;
-    z-index: 1;
+  .btn-blush:hover { background: #C9907E; color: white; }
+  .btn-blush-filled {
+    display: inline-flex; align-items: center; gap: 0.5rem;
+    padding: 0.75rem 2rem; border: 1px solid #C9907E; color: white;
+    font-family: var(--font-body); font-size: 0.75rem; font-weight: 500;
+    letter-spacing: 0.18em; text-transform: uppercase; background: #C9907E;
+    transition: all 0.35s ease; text-decoration: none;
   }
+  .btn-blush-filled:hover { background: transparent; color: #C9907E; }
 
-  /* Gold CTA button */
-  .btn-gold {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
-    padding: 0.75rem 2rem;
-    border: 1px solid var(--gold);
-    color: var(--gold);
-    font-family: var(--font-body);
-    font-size: 0.75rem;
-    font-weight: 500;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    background: transparent;
-    transition: all 0.4s ease;
-    text-decoration: none;
-  }
-  .btn-gold:hover {
-    background: var(--gold);
-    color: var(--charcoal);
-  }
-
-  /* Section number decoration */
-  .section-number {
-    font-family: var(--font-display);
-    font-size: 0.75rem;
-    font-weight: 400;
-    letter-spacing: 0.15em;
-    color: var(--gold);
-    opacity: 0.8;
-  }
-
-  /* Portfolio card */
-  .portfolio-card {
-    position: relative;
-    overflow: hidden;
-    cursor: pointer;
-  }
-  .portfolio-card img {
-    transition: transform 0.6s ease;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
-  .portfolio-card:hover img {
-    transform: scale(1.04);
-  }
+  .portfolio-card { position: relative; overflow: hidden; cursor: pointer; background: #F0EBE6; }
+  .portfolio-card img { transition: transform 0.7s ease; width: 100%; height: 100%; object-fit: cover; }
+  .portfolio-card:hover img { transform: scale(1.05); }
   .portfolio-card-overlay {
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(to top, rgba(0,0,0,0.85) 0%, transparent 50%);
-    opacity: 0;
-    transition: opacity 0.4s ease;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-    padding: 1.5rem;
+    position: absolute; inset: 0;
+    background: linear-gradient(to top, rgba(201,144,126,0.85) 0%, transparent 55%);
+    opacity: 0; transition: opacity 0.4s ease;
+    display: flex; flex-direction: column; justify-content: flex-end; padding: 1.5rem;
   }
-  .portfolio-card:hover .portfolio-card-overlay {
-    opacity: 1;
-  }
+  .portfolio-card:hover .portfolio-card-overlay { opacity: 1; }
 
-  /* Diagonal section divider */
-  .diagonal-top {
-    clip-path: polygon(0 4%, 100% 0, 100% 100%, 0 100%);
-    margin-top: -3rem;
-    padding-top: 5rem;
-  }
-  .diagonal-bottom {
-    clip-path: polygon(0 0, 100% 0, 100% 96%, 0 100%);
-    padding-bottom: 5rem;
-    margin-bottom: -3rem;
-  }
-
-  /* Fade-up animation */
   @keyframes fadeUp {
-    from { opacity: 0; transform: translateY(30px); }
+    from { opacity: 0; transform: translateY(24px); }
     to { opacity: 1; transform: translateY(0); }
   }
-  .fade-up {
-    animation: fadeUp 0.8s ease forwards;
-  }
+  .fade-up { animation: fadeUp 0.9s ease forwards; }
   .fade-up-delay-1 { animation-delay: 0.1s; opacity: 0; }
   .fade-up-delay-2 { animation-delay: 0.25s; opacity: 0; }
   .fade-up-delay-3 { animation-delay: 0.4s; opacity: 0; }
   .fade-up-delay-4 { animation-delay: 0.55s; opacity: 0; }
+
+  .bg-cream { background-color: #FAF7F4; }
+  .bg-blush-light { background-color: #F5EDE8; }
+  .bg-sage-light { background-color: #EFF2EF; }
 }
