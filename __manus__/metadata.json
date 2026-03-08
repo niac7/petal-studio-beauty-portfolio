@@ -1,0 +1,7 @@
+{
+  "name": "beauty-portfolio",
+  "title": "Petal Studio — Beauty & Skincare Photography",
+  "description": "A clean editorial beauty and skincare photography portfolio for Petal Studio.",
+  "scaffold": "web-static",
+  "version": "1.0.0"
+}
